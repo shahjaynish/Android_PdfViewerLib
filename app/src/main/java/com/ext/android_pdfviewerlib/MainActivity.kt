@@ -1,5 +1,6 @@
 package com.ext.android_pdfviewerlib
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,10 +28,19 @@ class MainActivity : AppCompatActivity() {
 
         // ✅ Load with config
         pdfViewer.loadPdf(file, PdfConfig(
-            enableCopyText = true,
-            enableZoom = true
-        )
-        )
+            highlightColor         = Color.argb(120, 255, 165, 0),  // orange
+            popupBackgroundColor   = Color.parseColor("#1E1E1E"),    // dark bg
+            popupTextColor         = Color.WHITE,
+            selectionHandleColor   = Color.parseColor("#FF6200EE"),  // purple handles
+            selectionBorderColor   = Color.argb(180, 98, 0, 238),
+            selectionUnderlineColor = Color.argb(180, 98, 0, 238)
+        ))
+
+        pdfViewer.updateConfig(PdfConfig(
+            popupBackgroundColor = Color.BLACK,
+            popupTextColor       = Color.WHITE
+        ))
+
 
         findViewById<android.widget.Button>(R.id.btnNext).setOnClickListener {
             pdfViewer.nextPage()
