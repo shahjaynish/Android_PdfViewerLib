@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    id("maven-publish")
 }
 
 android {
@@ -33,6 +34,9 @@ android {
             useLegacyPackaging = true
         }
     }
+    publishing {
+        singleVariant("release")
+    }
 }
 
 dependencies {
@@ -43,4 +47,24 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+
+                from(components["release"])
+
+                // CHANGE THIS TO YOUR USERNAME
+                groupId = "com.github.Excelsior-Technologies-Community"
+
+                // THIS CAN BE YOUR LIBRARY NAME
+                artifactId = "pdfviewer"
+
+                // This can be anything for now
+                version = "1.0.0"
+            }
+        }
+    }
 }
