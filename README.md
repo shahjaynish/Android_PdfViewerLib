@@ -18,6 +18,12 @@ A professional, lightweight Android PDF viewer library built on top of the MuPDF
 
 ---
 
+### Preview
+
+<img src="assets/demo.gif" width="320"/>
+
+---
+
 ## Installation
 
 ### Step 1: Add JitPack
@@ -37,7 +43,7 @@ dependencyResolutionManagement {
 
 ```gradle
 dependencies {
-	        implementation 'com.github.Excelsior-Technologies-Community:Android_InternetRetryWidget:1.0.0'
+	        implementation 'com.github.Excelsior-Technologies-Community:Android_PdfViewerLib:1.0.0'
 	}
 ```
 
